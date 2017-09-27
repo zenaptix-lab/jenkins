@@ -49,6 +49,9 @@ RUN yum install -y centos-release-scl-rh && \
 
 # Copy the entrypoint
 ADD contrib/bin/* /usr/local/bin/
+# Copy lightbend commercial license to home directory.
+# The license is ignored by git.
+ADD ./lightbend /home/jenkins/.lightbend/
 
 # Run the Jenkins JNLP client
 ENTRYPOINT ["/usr/local/bin/run-jnlp-client"]
